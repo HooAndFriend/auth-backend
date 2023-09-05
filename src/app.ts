@@ -15,10 +15,6 @@ import cors from 'cors'
 // ** DB Imports
 import dataSource from './config/database'
 
-// ** Firebase
-import admin, { ServiceAccount } from 'firebase-admin'
-import * as serviceAccount from './config/fcm.json'
-
 // ** Middleware Imports
 import SecurityMiddleware from './middleware/SecurityMiddleware'
 import { HttpErrorHandler } from 'middleware/ErrorMiddleware'
@@ -32,7 +28,6 @@ export class App {
     this.setDatabase()
     this.setMiddlewares()
     this.setErrorHandler()
-    this.setFirebase()
   }
 
   /**
@@ -51,19 +46,6 @@ export class App {
   private async setDatabase(): Promise<void> {
     try {
       await dataSource.initialize()
-    } catch (error) {
-      logger.error(error)
-    }
-  }
-
-  private async setFirebase(): Promise<void> {
-    try {
-      const parsedServiceAccount: ServiceAccount =
-        serviceAccount as ServiceAccount
-
-      admin.initializeApp({
-        credential: admin.credential.cert(parsedServiceAccount),
-      })
     } catch (error) {
       logger.error(error)
     }
