@@ -11,8 +11,8 @@
     "format": "prettier --write \"src/**/*.{ts,js}\"",
     "lint": "eslint --fix \"src/**/*.{ts,js}\"",
     "test": "NODE_ENV=test nodemon --watch \"src/**/*.ts\" --exec \"ts-node\" src/index.ts",
-    "docker": "docker build --no-cache --rm -f Dockerfile -t pinomaker/kido-backend:latest .",
-    "docker-push": "docker push pinomaker/kido-backend:latest"
+    "docker": "docker build --no-cache --rm -f Dockerfile -t pinomaker/auth-backend:latest .",
+    "docker-push": "docker push pinomaker/auth-backend:latest"
   },
   "keywords": [],
   "author": "",
