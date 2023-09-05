@@ -1,4 +1,4 @@
-# express-typeorm-boilerplate
+# Auth Backend Project
 
 ### Run Project
 
