@@ -20,4 +20,6 @@ export const {
   FIND_EMAIL_ID,
   API_HOST,
   API_URL,
+  REDIS_HOST,
+  REDIS_PORT,
 } = process.env

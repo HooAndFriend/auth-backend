@@ -14,11 +14,15 @@ import cors from 'cors'
 
 // ** DB Imports
 import dataSource from './config/database'
+import redis, { RedisClientOptions } from 'redis'
 
 // ** Middleware Imports
 import SecurityMiddleware from './middleware/SecurityMiddleware'
 import { HttpErrorHandler } from 'middleware/ErrorMiddleware'
 import LoggerMiddleware from 'middleware/LoggerMiddleware'
+
+// ** Env Imports
+import { REDIS_HOST, REDIS_PORT } from 'config'
 
 export class App {
   public app: express.Application
@@ -28,6 +32,7 @@ export class App {
     this.setDatabase()
     this.setMiddlewares()
     this.setErrorHandler()
+    // this.setRedis()
   }
 
   /**
@@ -58,6 +63,17 @@ export class App {
     Container.set(HttpErrorHandler, new HttpErrorHandler())
     Container.set(SecurityMiddleware, new SecurityMiddleware())
     Container.set(LoggerMiddleware, new LoggerMiddleware())
+  }
+
+  private setRedis(): void {
+    const client = redis.createClient({
+      host: REDIS_HOST,
+      port: +REDIS_PORT,
+    } as RedisClientOptions)
+
+    client.on('connect', () => {
+      logger.info('Redis is Running')
+    })
   }
 
   /**
