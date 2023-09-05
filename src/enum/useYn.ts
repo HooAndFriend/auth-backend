@@ -1,6 +1,6 @@
 enum UseYn {
-  Y = "Y",
-  N = "N",
+  Y = 'Y',
+  N = 'N',
 }
 
-export default UseYn;
+export default UseYn

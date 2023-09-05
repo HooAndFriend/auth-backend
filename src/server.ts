@@ -1,12 +1,12 @@
-import { App } from "./app";
-import { SERVER_PORT } from "./config";
-import { logger } from "./utils/logger";
+import { App } from './app'
+import { SERVER_PORT } from './config'
+import { logger } from './utils/logger'
 
 try {
-  const app = new App();
-  const port: number = +SERVER_PORT;
+  const app = new App()
+  const port: number = +SERVER_PORT
 
-  app.createExpressServer(port);
+  app.createExpressServer(port)
 } catch (error) {
-  logger.error(error);
+  logger.error(error)
 }

@@ -1,4 +1,4 @@
-require("dotenv").config({ path: `.env.${process.env.NODE_ENV}` });
+require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 
 export const {
   SERVER_PORT,
@@ -20,4 +20,4 @@ export const {
   FIND_EMAIL_ID,
   API_HOST,
   API_URL,
-} = process.env;
+} = process.env

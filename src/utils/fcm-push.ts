@@ -1,6 +1,6 @@
-import admin from "firebase-admin";
+import admin from 'firebase-admin'
 
-const messaging = admin.messaging();
+const messaging = admin.messaging()
 
 /**
  * Send Fcm Message Single
@@ -11,7 +11,7 @@ const messaging = admin.messaging();
 export const pushMessage = async (
   title: string,
   body: string,
-  token: string
+  token: string,
 ) => {
   try {
     const message = {
@@ -20,10 +20,10 @@ export const pushMessage = async (
         body,
       },
       token,
-    };
+    }
 
-    await messaging.send(message);
+    await messaging.send(message)
   } catch (err) {
-    console.log(err);
+    console.log(err)
   }
-};
+}
